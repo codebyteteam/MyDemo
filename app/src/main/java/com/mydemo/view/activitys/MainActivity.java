@@ -75,14 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_login_with_facebook)
     public void onViewClicked() {
-//        if (CommonMethod.isNetworkAvailable(MainActivity.this)) {
-//            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
-//        } else {
-//            Toast.makeText(MainActivity.this, "No Internet Connection.", Toast.LENGTH_SHORT).show();
-//        }
-        Intent intentNext = new Intent(MainActivity.this, FriendActivity.class);
-        intentNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intentNext);
+        if (CommonMethod.isNetworkAvailable(MainActivity.this)) {
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+        } else {
+            Toast.makeText(MainActivity.this, "No Internet Connection.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
